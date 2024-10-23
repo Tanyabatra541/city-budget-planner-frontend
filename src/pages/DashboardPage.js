@@ -204,41 +204,6 @@ const DashboardPage = () => {
             </button>
           </div>
 
-          {/* Budget Summary */}
-          {budgetPlan && (
-            <div className="card p-4 mt-4">
-              <h4>Budget Plan:</h4>
-
-              <Accordion defaultActiveKey="0">
-                <Accordion.Item eventKey="0">
-                  <Accordion.Header>View Budget Breakdown</Accordion.Header>
-                  <Accordion.Body>
-                    <pre className="whitespace-pre-wrap">{budgetPlan}</pre>
-                  </Accordion.Body>
-                </Accordion.Item>
-              </Accordion>
-            </div>
-          )}
-
-          {/* Progress Bars for Each Category */}
-          {budgetBreakdown.length > 0 && !loading && (
-            <div className="card p-4 mt-4">
-              <h4>Budget Progress</h4>
-              {budgetBreakdown.map((item) => (
-                <div key={item.category}>
-                  <h5>{item.category}</h5>
-                  <ProgressBar
-                    now={(item.amount / budget) * 100}
-                    label={`${item.amount} USD (${(
-                      (item.amount / budget) *
-                      100
-                    ).toFixed(2)}%)`}
-                  />
-                </div>
-              ))}
-            </div>
-          )}
-
           {/* Pie Chart */}
           {chartData.length > 0 && !loading && (
             <div className="card p-4 mt-4">
